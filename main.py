@@ -46,6 +46,9 @@ class MainWindow(QMainWindow):
         self.cap = cv2.VideoCapture()
         self.timer_video = QTimer()
         # 槽函数绑定
+
+
+
         self.band()
         # 输入参数
         self.waring = False
