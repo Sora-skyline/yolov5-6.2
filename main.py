@@ -36,7 +36,6 @@ from utils.general import (LOGGER, check_file, check_img_size, check_imshow, che
 from utils.plots import Annotator, colors, save_one_box
 from utils.torch_utils import select_device, smart_inference_mode, time_sync
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         # 初始化
