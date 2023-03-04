@@ -3,4 +3,4 @@ train: data/fixedbike/train/images
 val: data/fixedbike/val/images
 nc: 2
 #class names
-names: ['person', 'fixedbike']
+names: ['test', 'fixedbike']
