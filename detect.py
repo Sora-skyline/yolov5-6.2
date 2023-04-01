@@ -96,12 +96,12 @@ def  run(
     imgsz = check_img_size(imgsz, s=stride)  # check image size
     #4加载待预测的图片
     # Dataloader
-    if webcam:
+    if webcam:# 如果是视频流就走下面的逻辑
         view_img = check_imshow()
         cudnn.benchmark = True  # set True to speed up constant image size inference
         dataset = LoadStreams(source, img_size=imgsz, stride=stride, auto=pt)
         bs = len(dataset)  # batch_size
-    else:
+    else:# 如果是图片走以下逻辑，这里走下面的逻辑
         dataset = LoadImages(source, img_size=imgsz, stride=stride, auto=pt)
         bs = 1  # batch_size
     vid_path, vid_writer = [None] * bs, [None] * bs
@@ -219,10 +219,10 @@ def  run(
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default=ROOT / 'yolov5s.pt', help='model path(s)')
+    parser.add_argument('--weights', nargs='+', type=str, default=ROOT / 'cook_best.pt', help='model path(s)')
     # parser.add_argument('--weights', nargs='+', type=str, default=ROOT/'runs/train/exp29/weights/best.pt', help='model path(s)')
     # parser.add_argument('--source', type=str, default=ROOT / 'data/test', help='file/dir/URL/glob, 0 for webcam')
-    parser.add_argument('--source', type=str, default=ROOT / 'data/images', help='file/dir/URL/glob, 0 for webcam')
+    parser.add_argument('--source', type=str, default=ROOT / 'test.mp4', help='file/dir/URL/glob, 0 for webcam')
     # parser.add_argument('--source', type=str, default=ROOT / '0', help='file/dir/URL/glob, 0 for webcam')
     parser.add_argument('--data', type=str, default=ROOT / 'data/coco128.yaml', help='(optional) dataset.yaml path')
     # parser.add_argument('--data', type=str, default=ROOT / 'data/fixedbike.yaml', help='(optional) dataset.yaml path')

@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 628)
+        MainWindow.resize(800, 704)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout_2 = QHBoxLayout(self.centralwidget)
@@ -66,6 +66,8 @@ class Ui_MainWindow(object):
 
         self.pushButton_waring = QPushButton(self.centralwidget)
         self.pushButton_waring.setObjectName(u"pushButton_waring")
+        self.pushButton_waring.setMinimumSize(QSize(150, 100))
+        self.pushButton_waring.setMaximumSize(QSize(150, 100))
 
         self.verticalLayout.addWidget(self.pushButton_waring)
 
@@ -85,6 +87,9 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(1080, 720))
+        self.label.setScaledContents(True)
+        self.label.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.label)
 
@@ -112,6 +117,6 @@ class Ui_MainWindow(object):
         self.pushButton_camera.setText(QCoreApplication.translate("MainWindow", u"\u6444\u50cf\u5934\u68c0\u6d4b", None))
         self.pushButton_waring.setText(QCoreApplication.translate("MainWindow", u"\u8b66\u544a\u91cd\u7f6e", None))
         self.pushButton_video.setText(QCoreApplication.translate("MainWindow", u"\u89c6\u9891\u68c0\u6d4b", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u68c0\u6d4b\u533a", None))
     # retranslateUi
 

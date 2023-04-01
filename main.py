@@ -46,15 +46,12 @@ class MainWindow(QMainWindow):
         self.cap = cv2.VideoCapture()
         self.timer_video = QTimer()
         # 槽函数绑定
-
-
-
         self.band()
         # 输入参数
         self.waring = False
         self.cnt = 0
         parser = argparse.ArgumentParser()
-        parser.add_argument('--weights', nargs='+', type=str, default=ROOT / 'yolov5s.pt', help='model path(s)')
+        parser.add_argument('--weights', nargs='+', type=str, default=ROOT / 'cook_best.pt', help='model path(s)')
         # parser.add_argument('--weights', nargs='+', type=str, default=ROOT/'runs/train/exp29/weights/best.pt', help='model path(s)')
         # parser.add_argument('--source', type=str, default=ROOT / 'data/test', help='file/dir/URL/glob, 0 for webcam')
         parser.add_argument('--source', type=str, default=ROOT / 'data/images', help='file/dir/URL/glob, 0 for webcam')
@@ -169,7 +166,7 @@ class MainWindow(QMainWindow):
                     for *xyxy, conf, cls in reversed(det):
                         # Add bbox to image 画到原图上
                         c = int(cls)  # integer class
-                        if c == 0:
+                        if c == 1:
                             QtWidgets.QMessageBox.warning(
                                 self, u"Warning", u"person警告", buttons=QtWidgets.QMessageBox.Ok,
                                 defaultButton=QtWidgets.QMessageBox.Ok)
@@ -290,7 +287,7 @@ class MainWindow(QMainWindow):
                         # Add bbox to image 画到原图上
                         c = int(cls)  # integer class
 
-                        if c == 0:
+                        if c == 0 or c == 2:
                             self.waring = True
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
                         annotator.box_label(xyxy, label, color=colors(c, True))
@@ -307,7 +304,7 @@ class MainWindow(QMainWindow):
                 self.ui.label.setScaledContents(True)  # 自适应窗口
             if self.waring == True and  self.cnt == 0:
                 QtWidgets.QMessageBox.warning(
-                    self, u"Warning", u"person警告", buttons=QtWidgets.QMessageBox.Ok,
+                    self, u"Warning", u"警告", buttons=QtWidgets.QMessageBox.Ok,
                     defaultButton=QtWidgets.QMessageBox.Ok)
                 self.cnt += 1
                 cv2.imwrite(save_path, im0)

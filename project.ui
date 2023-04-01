@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>628</height>
+    <height>704</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -92,6 +92,18 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_waring">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>100</height>
+           </size>
+          </property>
           <property name="text">
            <string>警告重置</string>
           </property>
@@ -132,8 +144,20 @@
       </item>
       <item>
        <widget class="QLabel" name="label">
+        <property name="maximumSize">
+         <size>
+          <width>1080</width>
+          <height>720</height>
+         </size>
+        </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>检测区</string>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
